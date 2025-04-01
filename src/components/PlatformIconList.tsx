@@ -12,6 +12,7 @@ import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
 import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons/lib";
+import { SiAtari } from "react-icons/si";
 
 interface Props {
   platforms: Platform[];
@@ -23,6 +24,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     playstation: FaPlaystation,
     xbox: FaXbox,
     nintendo: SiNintendo,
+    atari: SiAtari,
     mac: FaApple,
     linux: FaLinux,
     android: FaAndroid,
