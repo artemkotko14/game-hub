@@ -7,18 +7,33 @@ import getCroppedImageUrl from "../services/image-url";
 interface Props {
   game: Game;
 }
+
 const GameCard = ({ game }: Props) => {
   return (
-    <Card>
+    <Card height="100%" minHeight={{ lg: "340px", xl: "300px" }}>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justifyContent="space-between">
-          <PlatformIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
-          />
+        <HStack
+          display="flex"
+          justifyContent="space-between"
+          spacing={3}
+          width="100%"
+          marginBottom={3}
+        >
+          {/* Wrapper div ensures PlatformIconList can shrink properly inside HStack */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: 0,
+            }}
+          >
+            <PlatformIconList
+              platforms={game.parent_platforms.map((p) => p.platform)}
+            />
+          </div>
           <CriticScore score={game.metacritic} />
         </HStack>
+        <Heading fontSize="2xl">{game.name}</Heading>
       </CardBody>
     </Card>
   );

@@ -32,9 +32,14 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: BsGlobe,
   };
   return (
-    <HStack marginY={1}>
+    <HStack marginY={1} display={"flex"}>
       {platforms.map((platform) => (
-        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
+        <Icon
+          key={platform.id}
+          as={iconMap[platform.slug]}
+          color="gray.500"
+          flexShrink={0.5}
+        />
       ))}
     </HStack>
   );
