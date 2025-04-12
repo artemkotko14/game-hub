@@ -1,3 +1,4 @@
+import { Platform } from "../hooks/useGames";
 import {
   FaWindows,
   FaPlaystation,
@@ -7,28 +8,35 @@ import {
   FaAndroid,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
+import { BsGlobe, BsCheck2All } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
-import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons/lib";
-import { SiAtari } from "react-icons/si";
+import { SiNintendo, SiAtari, SiSega } from "react-icons/si";
+import { MdDoneOutline } from "react-icons/md";
+import { IoLogoGameControllerA } from "react-icons/io";
+import { GiJoystick } from "react-icons/gi";
 
 interface Props {
   platforms: Platform[];
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
+  console.log(platforms);
+
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
     xbox: FaXbox,
-    nintendo: SiNintendo,
-    atari: SiAtari,
+    ios: MdPhoneIphone,
+    android: FaAndroid,
     mac: FaApple,
     linux: FaLinux,
-    android: FaAndroid,
-    ios: MdPhoneIphone,
+    nintendo: SiNintendo,
+    atari: SiAtari,
+    "commodore-amiga": BsCheck2All,
+    sega: SiSega,
+    "3do": IoLogoGameControllerA,
+    "neo-geo": GiJoystick,
     web: BsGlobe,
   };
   return (
